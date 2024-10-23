@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Telegram bots": {
+      "commandName": "Project",
+      "commandLineArgs": "zgdgs"
+    }
+  }
+}

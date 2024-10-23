@@ -1,0 +1,52 @@
+### YamlMime:ManagedReference
+items:
+- uid: Telegram_bots.TelegramBot.UpdateHandler
+  commentId: T:Telegram_bots.TelegramBot.UpdateHandler
+  id: TelegramBot.UpdateHandler
+  parent: Telegram_bots
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: TelegramBot.UpdateHandler
+  nameWithType: TelegramBot.UpdateHandler
+  fullName: Telegram_bots.TelegramBot.UpdateHandler
+  type: Delegate
+  source:
+    id: UpdateHandler
+    path: F:\G\lng\C#\Telegram\Telegram bots\TelegramBot.cs
+    startLine: 164
+  assemblies:
+  - Telegram bots
+  namespace: Telegram_bots
+  summary: Called if an update has arrived
+  example: []
+  syntax:
+    content: public delegate void TelegramBot.UpdateHandler(Update update, TelegramBot bot)
+    parameters:
+    - id: update
+      type: Telegram_bots.Update
+    - id: bot
+      type: Telegram_bots.TelegramBot
+    content.vb: Public Delegate Sub TelegramBot.UpdateHandler(update As Update, bot As TelegramBot)
+references:
+- uid: Telegram_bots
+  commentId: N:Telegram_bots
+  href: Telegram_bots.html
+  name: Telegram_bots
+  nameWithType: Telegram_bots
+  fullName: Telegram_bots
+- uid: Telegram_bots.Update
+  commentId: T:Telegram_bots.Update
+  parent: Telegram_bots
+  href: Telegram_bots.Update.html
+  name: Update
+  nameWithType: Update
+  fullName: Telegram_bots.Update
+- uid: Telegram_bots.TelegramBot
+  commentId: T:Telegram_bots.TelegramBot
+  parent: Telegram_bots
+  href: Telegram_bots.TelegramBot.html
+  name: TelegramBot
+  nameWithType: TelegramBot
+  fullName: Telegram_bots.TelegramBot

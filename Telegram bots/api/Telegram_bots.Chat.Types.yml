@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: Telegram_bots.Chat.Types
+  commentId: T:Telegram_bots.Chat.Types
+  id: Chat.Types
+  parent: Telegram_bots
+  children:
+  - Telegram_bots.Chat.Types.Channel
+  - Telegram_bots.Chat.Types.Group
+  - Telegram_bots.Chat.Types.Private
+  - Telegram_bots.Chat.Types.Supergroup
+  langs:
+  - csharp
+  - vb
+  name: Chat.Types
+  nameWithType: Chat.Types
+  fullName: Telegram_bots.Chat.Types
+  type: Enum
+  source:
+    id: Types
+    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    startLine: 12
+  assemblies:
+  - Telegram bots
+  namespace: Telegram_bots
+  summary: Chat Types
+  example: []
+  syntax:
+    content: public enum Chat.Types
+    content.vb: Public Enum Chat.Types
+- uid: Telegram_bots.Chat.Types.Private
+  commentId: F:Telegram_bots.Chat.Types.Private
+  id: Private
+  parent: Telegram_bots.Chat.Types
+  langs:
+  - csharp
+  - vb
+  name: Private
+  nameWithType: Chat.Types.Private
+  fullName: Telegram_bots.Chat.Types.Private
+  type: Field
+  source:
+    id: Private
+    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    startLine: 17
+  assemblies:
+  - Telegram bots
+  namespace: Telegram_bots
+  summary: Private chat
+  example: []
+  syntax:
+    content: Private = 0
+    return:
+      type: Telegram_bots.Chat.Types
+- uid: Telegram_bots.Chat.Types.Group
+  commentId: F:Telegram_bots.Chat.Types.Group
+  id: Group
+  parent: Telegram_bots.Chat.Types
+  langs:
+  - csharp
+  - vb
+  name: Group
+  nameWithType: Chat.Types.Group
+  fullName: Telegram_bots.Chat.Types.Group
+  type: Field
+  source:
+    id: Group
+    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    startLine: 21
+  assemblies:
+  - Telegram bots
+  namespace: Telegram_bots
+  summary: Group
+  example: []
+  syntax:
+    content: Group = 1
+    return:
+      type: Telegram_bots.Chat.Types
+- uid: Telegram_bots.Chat.Types.Supergroup
+  commentId: F:Telegram_bots.Chat.Types.Supergroup
+  id: Supergroup
+  parent: Telegram_bots.Chat.Types
+  langs:
+  - csharp
+  - vb
+  name: Supergroup
+  nameWithType: Chat.Types.Supergroup
+  fullName: Telegram_bots.Chat.Types.Supergroup
+  type: Field
+  source:
+    id: Supergroup
+    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    startLine: 25
+  assemblies:
+  - Telegram bots
+  namespace: Telegram_bots
+  summary: Supergroup
+  example: []
+  syntax:
+    content: Supergroup = 2
+    return:
+      type: Telegram_bots.Chat.Types
+- uid: Telegram_bots.Chat.Types.Channel
+  commentId: F:Telegram_bots.Chat.Types.Channel
+  id: Channel
+  parent: Telegram_bots.Chat.Types
+  langs:
+  - csharp
+  - vb
+  name: Channel
+  nameWithType: Chat.Types.Channel
+  fullName: Telegram_bots.Chat.Types.Channel
+  type: Field
+  source:
+    id: Channel
+    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    startLine: 29
+  assemblies:
+  - Telegram bots
+  namespace: Telegram_bots
+  summary: Channel
+  example: []
+  syntax:
+    content: Channel = 3
+    return:
+      type: Telegram_bots.Chat.Types
+references:
+- uid: Telegram_bots
+  commentId: N:Telegram_bots
+  href: Telegram_bots.html
+  name: Telegram_bots
+  nameWithType: Telegram_bots
+  fullName: Telegram_bots
+- uid: Telegram_bots.Chat.Types
+  commentId: T:Telegram_bots.Chat.Types
+  parent: Telegram_bots
+  href: Telegram_bots.Chat.html
+  name: Chat.Types
+  nameWithType: Chat.Types
+  fullName: Telegram_bots.Chat.Types
+  spec.csharp:
+  - uid: Telegram_bots.Chat
+    name: Chat
+    href: Telegram_bots.Chat.html
+  - name: .
+  - uid: Telegram_bots.Chat.Types
+    name: Types
+    href: Telegram_bots.Chat.Types.html
+  spec.vb:
+  - uid: Telegram_bots.Chat
+    name: Chat
+    href: Telegram_bots.Chat.html
+  - name: .
+  - uid: Telegram_bots.Chat.Types
+    name: Types
+    href: Telegram_bots.Chat.Types.html

@@ -1,0 +1,13 @@
+F:\G\lng\C#\Telegram\Telegram bots\bin\Release\net8.0\Telegram bots.deps.json
+F:\G\lng\C#\Telegram\Telegram bots\bin\Release\net8.0\Telegram bots.dll
+F:\G\lng\C#\Telegram\Telegram bots\bin\Release\net8.0\Telegram bots.pdb
+F:\G\lng\C#\Telegram\Telegram bots\bin\Release\net8.0\Telegram bots.xml
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.GeneratedMSBuildEditorConfig.editorconfig
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.AssemblyInfoInputs.cache
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.AssemblyInfo.cs
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.csproj.CoreCompileInputs.cache
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.dll
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\refint\Telegram bots.dll
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.xml
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.pdb
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\ref\Telegram bots.dll

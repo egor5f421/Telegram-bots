@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: Telegram_bots
+  commentId: N:Telegram_bots
+  id: Telegram_bots
+  children:
+  - Telegram_bots.Chat
+  - Telegram_bots.Chat.Types
+  - Telegram_bots.Message
+  - Telegram_bots.TelegramBot
+  - Telegram_bots.TelegramBot.UpdateHandler
+  - Telegram_bots.Update
+  - Telegram_bots.User
+  langs:
+  - csharp
+  - vb
+  name: Telegram_bots
+  nameWithType: Telegram_bots
+  fullName: Telegram_bots
+  type: Namespace
+  assemblies:
+  - Telegram bots
+references:
+- uid: Telegram_bots.Chat
+  commentId: T:Telegram_bots.Chat
+  parent: Telegram_bots
+  href: Telegram_bots.Chat.html
+  name: Chat
+  nameWithType: Chat
+  fullName: Telegram_bots.Chat
+- uid: Telegram_bots.Chat.Types
+  commentId: T:Telegram_bots.Chat.Types
+  parent: Telegram_bots
+  href: Telegram_bots.Chat.html
+  name: Chat.Types
+  nameWithType: Chat.Types
+  fullName: Telegram_bots.Chat.Types
+  spec.csharp:
+  - uid: Telegram_bots.Chat
+    name: Chat
+    href: Telegram_bots.Chat.html
+  - name: .
+  - uid: Telegram_bots.Chat.Types
+    name: Types
+    href: Telegram_bots.Chat.Types.html
+  spec.vb:
+  - uid: Telegram_bots.Chat
+    name: Chat
+    href: Telegram_bots.Chat.html
+  - name: .
+  - uid: Telegram_bots.Chat.Types
+    name: Types
+    href: Telegram_bots.Chat.Types.html
+- uid: Telegram_bots.Message
+  commentId: T:Telegram_bots.Message
+  parent: Telegram_bots
+  href: Telegram_bots.Message.html
+  name: Message
+  nameWithType: Message
+  fullName: Telegram_bots.Message
+- uid: Telegram_bots.TelegramBot
+  commentId: T:Telegram_bots.TelegramBot
+  parent: Telegram_bots
+  href: Telegram_bots.TelegramBot.html
+  name: TelegramBot
+  nameWithType: TelegramBot
+  fullName: Telegram_bots.TelegramBot
+- uid: Telegram_bots.TelegramBot.UpdateHandler
+  commentId: T:Telegram_bots.TelegramBot.UpdateHandler
+  parent: Telegram_bots
+  href: Telegram_bots.TelegramBot.html
+  name: TelegramBot.UpdateHandler
+  nameWithType: TelegramBot.UpdateHandler
+  fullName: Telegram_bots.TelegramBot.UpdateHandler
+  spec.csharp:
+  - uid: Telegram_bots.TelegramBot
+    name: TelegramBot
+    href: Telegram_bots.TelegramBot.html
+  - name: .
+  - uid: Telegram_bots.TelegramBot.UpdateHandler
+    name: UpdateHandler
+    href: Telegram_bots.TelegramBot.UpdateHandler.html
+  spec.vb:
+  - uid: Telegram_bots.TelegramBot
+    name: TelegramBot
+    href: Telegram_bots.TelegramBot.html
+  - name: .
+  - uid: Telegram_bots.TelegramBot.UpdateHandler
+    name: UpdateHandler
+    href: Telegram_bots.TelegramBot.UpdateHandler.html
+- uid: Telegram_bots.Update
+  commentId: T:Telegram_bots.Update
+  parent: Telegram_bots
+  href: Telegram_bots.Update.html
+  name: Update
+  nameWithType: Update
+  fullName: Telegram_bots.Update
+- uid: Telegram_bots.User
+  commentId: T:Telegram_bots.User
+  parent: Telegram_bots
+  href: Telegram_bots.User.html
+  name: User
+  nameWithType: User
+  fullName: Telegram_bots.User
+- uid: Telegram_bots
+  commentId: N:Telegram_bots
+  href: Telegram_bots.html
+  name: Telegram_bots
+  nameWithType: Telegram_bots
+  fullName: Telegram_bots
