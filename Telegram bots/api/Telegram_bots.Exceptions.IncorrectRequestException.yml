@@ -17,8 +17,12 @@ items:
   fullName: Telegram_bots.Exceptions.IncorrectRequestException
   type: Class
   source:
+    remote:
+      path: Telegram bots/Exceptions/IncorrectRequestException.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: IncorrectRequestException
-    path: F:\G\lng\C#\Telegram\Telegram bots\Exceptions\IncorrectRequestException.cs
+    path: Exceptions/IncorrectRequestException.cs
     startLine: 8
   assemblies:
   - Telegram bots
@@ -63,8 +67,12 @@ items:
   fullName: Telegram_bots.Exceptions.IncorrectRequestException.IncorrectRequestException()
   type: Constructor
   source:
+    remote:
+      path: Telegram bots/Exceptions/IncorrectRequestException.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: .ctor
-    path: F:\G\lng\C#\Telegram\Telegram bots\Exceptions\IncorrectRequestException.cs
+    path: Exceptions/IncorrectRequestException.cs
     startLine: 13
   assemblies:
   - Telegram bots
@@ -90,8 +98,12 @@ items:
   fullName: Telegram_bots.Exceptions.IncorrectRequestException.IncorrectRequestException(string?)
   type: Constructor
   source:
+    remote:
+      path: Telegram bots/Exceptions/IncorrectRequestException.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: .ctor
-    path: F:\G\lng\C#\Telegram\Telegram bots\Exceptions\IncorrectRequestException.cs
+    path: Exceptions/IncorrectRequestException.cs
     startLine: 18
   assemblies:
   - Telegram bots
@@ -121,8 +133,12 @@ items:
   fullName: Telegram_bots.Exceptions.IncorrectRequestException.IncorrectRequestException(string, System.Exception)
   type: Constructor
   source:
+    remote:
+      path: Telegram bots/Exceptions/IncorrectRequestException.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: .ctor
-    path: F:\G\lng\C#\Telegram\Telegram bots\Exceptions\IncorrectRequestException.cs
+    path: Exceptions/IncorrectRequestException.cs
     startLine: 24
   assemblies:
   - Telegram bots
@@ -155,8 +171,12 @@ items:
   fullName: Telegram_bots.Exceptions.IncorrectRequestException.ThrowIfNotOk(System.Text.Json.JsonDocument)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Exceptions/IncorrectRequestException.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: ThrowIfNotOk
-    path: F:\G\lng\C#\Telegram\Telegram bots\Exceptions\IncorrectRequestException.cs
+    path: Exceptions/IncorrectRequestException.cs
     startLine: 30
   assemblies:
   - Telegram bots

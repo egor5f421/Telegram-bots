@@ -24,8 +24,12 @@ items:
   fullName: Telegram_bots.Message
   type: Class
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Message
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 7
   assemblies:
   - Telegram bots
@@ -54,8 +58,12 @@ items:
   fullName: Telegram_bots.Message.Id
   type: Property
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Id
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 12
   assemblies:
   - Telegram bots
@@ -81,8 +89,12 @@ items:
   fullName: Telegram_bots.Message.Datetime
   type: Property
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Datetime
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 16
   assemblies:
   - Telegram bots
@@ -108,8 +120,12 @@ items:
   fullName: Telegram_bots.Message.Chat
   type: Property
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Chat
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 20
   assemblies:
   - Telegram bots
@@ -135,8 +151,12 @@ items:
   fullName: Telegram_bots.Message.Text
   type: Property
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Text
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 25
   assemblies:
   - Telegram bots
@@ -162,8 +182,12 @@ items:
   fullName: Telegram_bots.Message.From
   type: Property
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: From
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 29
   assemblies:
   - Telegram bots
@@ -189,8 +213,12 @@ items:
   fullName: Telegram_bots.Message.Equals(object?)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Equals
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 37
   assemblies:
   - Telegram bots
@@ -224,8 +252,12 @@ items:
   fullName: Telegram_bots.Message.FromJSON(System.Text.Json.JsonDocument)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 55
   assemblies:
   - Telegram bots
@@ -255,8 +287,12 @@ items:
   fullName: Telegram_bots.Message.FromJSON(System.Text.Json.JsonElement)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 82
   assemblies:
   - Telegram bots
@@ -286,8 +322,12 @@ items:
   fullName: Telegram_bots.Message.FromJSON(string)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 91
   assemblies:
   - Telegram bots
@@ -320,8 +360,12 @@ items:
   fullName: Telegram_bots.Message.ToString()
   type: Method
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: ToString
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 101
   assemblies:
   - Telegram bots
@@ -348,8 +392,12 @@ items:
   fullName: Telegram_bots.Message.GetHashCode()
   type: Method
   source:
+    remote:
+      path: Telegram bots/Message.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: GetHashCode
-    path: F:\G\lng\C#\Telegram\Telegram bots\Message.cs
+    path: Message.cs
     startLine: 128
   assemblies:
   - Telegram bots

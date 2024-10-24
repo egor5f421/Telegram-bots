@@ -222,11 +222,14 @@
             </summary>
             <param name="Token">Token for the bot</param>
             <exception cref="T:Telegram_bots.Exceptions.IncorrectRequestException">Called if you entered the wrong token</exception>
-            <example><code>
+            <example>
+            <code>
             public static async Task Main(string[] args)
             {
                 using TelegramBot bot = new (args[0]);
-            }</code></example>
+            }
+            </code>
+            </example>
         </member>
         <member name="M:Telegram_bots.TelegramBot.GetMe">
             <summary>
@@ -263,8 +266,10 @@
         </member>
         <member name="T:Telegram_bots.TelegramBot.UpdateHandler">
             <summary>
-            Called if an update has arrived
+            Signature of the "OnUpdate" event
             </summary>
+            <param name="update">The latest update</param>
+            <param name="bot">Telegram bot</param>
         </member>
         <member name="E:Telegram_bots.TelegramBot.OnUpdate">
             <summary>

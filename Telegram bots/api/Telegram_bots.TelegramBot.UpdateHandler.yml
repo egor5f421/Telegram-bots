@@ -13,13 +13,17 @@ items:
   fullName: Telegram_bots.TelegramBot.UpdateHandler
   type: Delegate
   source:
+    remote:
+      path: Telegram bots/TelegramBot.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: UpdateHandler
-    path: F:\G\lng\C#\Telegram\Telegram bots\TelegramBot.cs
-    startLine: 164
+    path: TelegramBot.cs
+    startLine: 167
   assemblies:
   - Telegram bots
   namespace: Telegram_bots
-  summary: Called if an update has arrived
+  summary: Signature of the "OnUpdate" event
   example: []
   syntax:
     content: public delegate void TelegramBot.UpdateHandler(Update update, TelegramBot bot)

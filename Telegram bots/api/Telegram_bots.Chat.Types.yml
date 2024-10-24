@@ -17,8 +17,12 @@ items:
   fullName: Telegram_bots.Chat.Types
   type: Enum
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Types
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 12
   assemblies:
   - Telegram bots
@@ -40,8 +44,12 @@ items:
   fullName: Telegram_bots.Chat.Types.Private
   type: Field
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Private
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 17
   assemblies:
   - Telegram bots
@@ -64,8 +72,12 @@ items:
   fullName: Telegram_bots.Chat.Types.Group
   type: Field
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Group
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 21
   assemblies:
   - Telegram bots
@@ -88,8 +100,12 @@ items:
   fullName: Telegram_bots.Chat.Types.Supergroup
   type: Field
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Supergroup
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 25
   assemblies:
   - Telegram bots
@@ -112,8 +128,12 @@ items:
   fullName: Telegram_bots.Chat.Types.Channel
   type: Field
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Channel
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 29
   assemblies:
   - Telegram bots

@@ -163,8 +163,10 @@ namespace Telegram_bots
 
         #region OnUpdate event
         /// <summary>
-        /// Called if an update has arrived
+        /// Signature of the "OnUpdate" event
         /// </summary>
+        /// <param name="update">The latest update</param>
+        /// <param name="bot">Telegram bot</param>
         public delegate void UpdateHandler(Update update, TelegramBot bot);
         /// <summary>
         /// Called if an update has arrived
@@ -209,5 +211,4 @@ namespace Telegram_bots
         }
         #endregion
     }
-
 }

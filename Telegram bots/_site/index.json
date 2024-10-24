@@ -27,7 +27,7 @@
   "api/Telegram_bots.TelegramBot.UpdateHandler.html": {
     "href": "api/Telegram_bots.TelegramBot.UpdateHandler.html",
     "title": "Delegate TelegramBot.UpdateHandler | Telegram bots",
-    "keywords": "Delegate TelegramBot.UpdateHandler Namespace Telegram_bots Assembly Telegram bots.dll Called if an update has arrived public delegate void TelegramBot.UpdateHandler(Update update, TelegramBot bot) Parameters update Update Called if an update has arrived bot TelegramBot Called if an update has arrived"
+    "keywords": "Delegate TelegramBot.UpdateHandler Namespace Telegram_bots Assembly Telegram bots.dll Signature of the \"OnUpdate\" event public delegate void TelegramBot.UpdateHandler(Update update, TelegramBot bot) Parameters update Update Signature of the \"OnUpdate\" event bot TelegramBot Signature of the \"OnUpdate\" event"
   },
   "api/Telegram_bots.TelegramBot.html": {
     "href": "api/Telegram_bots.TelegramBot.html",
@@ -47,7 +47,7 @@
   "api/Telegram_bots.html": {
     "href": "api/Telegram_bots.html",
     "title": "Namespace Telegram_bots | Telegram bots",
-    "keywords": "Namespace Telegram_bots Classes Chat The object providing the chat Message The class representing the message TelegramBot This class is a telegram bot Update A class representing Update User A class representing the user Enums Chat.Types Chat Types Delegates TelegramBot.UpdateHandler Called if an update has arrived"
+    "keywords": "Namespace Telegram_bots Classes Chat The object providing the chat Message The class representing the message TelegramBot This class is a telegram bot Update A class representing Update User A class representing the user Enums Chat.Types Chat Types Delegates TelegramBot.UpdateHandler Signature of the \"OnUpdate\" event"
   },
   "docs/getting-started.html": {
     "href": "docs/getting-started.html",

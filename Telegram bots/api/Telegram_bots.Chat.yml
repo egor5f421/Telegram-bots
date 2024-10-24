@@ -23,8 +23,12 @@ items:
   fullName: Telegram_bots.Chat
   type: Class
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Chat
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 7
   assemblies:
   - Telegram bots
@@ -55,8 +59,12 @@ items:
   fullName: Telegram_bots.Chat.Id
   type: Property
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Id
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 35
   assemblies:
   - Telegram bots
@@ -82,8 +90,12 @@ items:
   fullName: Telegram_bots.Chat.Type
   type: Property
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Type
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 39
   assemblies:
   - Telegram bots
@@ -109,8 +121,12 @@ items:
   fullName: Telegram_bots.Chat.Title
   type: Property
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Title
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 43
   assemblies:
   - Telegram bots
@@ -136,8 +152,12 @@ items:
   fullName: Telegram_bots.Chat.FirstName
   type: Property
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FirstName
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 47
   assemblies:
   - Telegram bots
@@ -163,8 +183,12 @@ items:
   fullName: Telegram_bots.Chat.LastName
   type: Property
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: LastName
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 51
   assemblies:
   - Telegram bots
@@ -190,8 +214,12 @@ items:
   fullName: Telegram_bots.Chat.Username
   type: Property
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Username
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 55
   assemblies:
   - Telegram bots
@@ -217,8 +245,12 @@ items:
   fullName: Telegram_bots.Chat.FromJSON(System.Text.Json.JsonDocument)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 64
   assemblies:
   - Telegram bots
@@ -252,8 +284,12 @@ items:
   fullName: Telegram_bots.Chat.FromJSON(System.Text.Json.JsonElement)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 105
   assemblies:
   - Telegram bots
@@ -283,8 +319,12 @@ items:
   fullName: Telegram_bots.Chat.FromJSON(string)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 114
   assemblies:
   - Telegram bots
@@ -317,8 +357,12 @@ items:
   fullName: Telegram_bots.Chat.ToString()
   type: Method
   source:
+    remote:
+      path: Telegram bots/Chat.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: ToString
-    path: F:\G\lng\C#\Telegram\Telegram bots\Chat.cs
+    path: Chat.cs
     startLine: 124
   assemblies:
   - Telegram bots

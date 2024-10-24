@@ -11,3 +11,4 @@ F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\refint\Telegram bots.dll
 F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.xml
 F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.pdb
 F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\ref\Telegram bots.dll
+F:\G\lng\C#\Telegram\Telegram bots\obj\Release\net8.0\Telegram bots.sourcelink.json

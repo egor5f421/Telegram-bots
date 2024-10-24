@@ -21,8 +21,12 @@ items:
   fullName: Telegram_bots.Update
   type: Class
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Update
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 7
   assemblies:
   - Telegram bots
@@ -51,8 +55,12 @@ items:
   fullName: Telegram_bots.Update.UpdateId
   type: Property
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: UpdateId
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 12
   assemblies:
   - Telegram bots
@@ -78,8 +86,12 @@ items:
   fullName: Telegram_bots.Update.Message
   type: Property
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Message
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 17
   assemblies:
   - Telegram bots
@@ -105,8 +117,12 @@ items:
   fullName: Telegram_bots.Update.Equals(object?)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: Equals
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 25
   assemblies:
   - Telegram bots
@@ -140,8 +156,12 @@ items:
   fullName: Telegram_bots.Update.FromJSON(System.Text.Json.JsonDocument)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 43
   assemblies:
   - Telegram bots
@@ -171,8 +191,12 @@ items:
   fullName: Telegram_bots.Update.FromJSON(System.Text.Json.JsonElement)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 64
   assemblies:
   - Telegram bots
@@ -202,8 +226,12 @@ items:
   fullName: Telegram_bots.Update.FromJSON(string)
   type: Method
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: FromJSON
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 73
   assemblies:
   - Telegram bots
@@ -236,8 +264,12 @@ items:
   fullName: Telegram_bots.Update.ToString()
   type: Method
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: ToString
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 83
   assemblies:
   - Telegram bots
@@ -264,8 +296,12 @@ items:
   fullName: Telegram_bots.Update.GetHashCode()
   type: Method
   source:
+    remote:
+      path: Telegram bots/Update.cs
+      branch: main
+      repo: git@github.com:egor5f421/Telegram-bots.git
     id: GetHashCode
-    path: F:\G\lng\C#\Telegram\Telegram bots\Update.cs
+    path: Update.cs
     startLine: 100
   assemblies:
   - Telegram bots
