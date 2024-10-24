@@ -47,7 +47,7 @@ namespace Telegram_bots
         /// </example>
         public TelegramBot(string Token)
         {
-            this.Token = Token
+            this.Token = Token;
             httpClient = new()
             {
                 BaseAddress = new Uri("https://api.telegram.org/bot" + Token + "/")
