@@ -82,14 +82,19 @@ namespace Telegram_bots
         /// Sends a message
         /// </summary>
         /// <param name="Text">The text of the message</param>
-        /// <param name="ChatId">Chat_id of the chat to send the message to</param>
+        /// <param name="ChatId">The chat_id to which the message will be sent. Do not use if you want to use the chat_id from the latest update</param>
         /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
         /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
         /// <returns>The message that was sent</returns>
-        public async Task<Message> SendMessage(string Text, long ChatId)
+        public async Task<Message> SendMessage(string Text, long ChatId = 0)
         {
             ArgumentNullException.ThrowIfNull(Text);
             ArgumentNullException.ThrowIfNull(ChatId);
+
+            if (ChatId == 0)
+            {
+                ChatId = lastChatId;
+            }
 
             Dictionary<string, string?> contentData = [];
 
@@ -108,17 +113,6 @@ namespace Telegram_bots
             Message message = Message.FromJSON(json.RootElement.GetProperty("result"));
 
             return message;
-        }
-        /// <summary>
-        /// Sends a message to the chat from which the latest update was received
-        /// </summary>
-        /// <param name="Text">The text of the message</param>
-        /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
-        /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
-        /// <returns>The message that was sent</returns>
-        public async Task<Message> SendMessage(string Text)
-        {
-            return await SendMessage(Text, lastChatId);
         }
         #endregion
 
@@ -167,7 +161,7 @@ namespace Telegram_bots
         /// </summary>
         /// <param name="update">The latest update</param>
         /// <param name="bot">Telegram bot</param>
-        public delegate void UpdateHandler(Update update, TelegramBot bot);
+        public delegate Task UpdateHandler(Update update, TelegramBot bot);
         /// <summary>
         /// Called if an update has arrived
         /// </summary>

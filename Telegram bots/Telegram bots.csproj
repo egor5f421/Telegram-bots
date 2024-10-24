@@ -7,6 +7,8 @@
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <SignAssembly>False</SignAssembly>
+    <OutputType>Exe</OutputType>
+    <StartupObject>MyTGBot.Tst</StartupObject>
   </PropertyGroup>
 
 </Project>
