@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 
 namespace Telegram_bots
 {
@@ -118,38 +119,35 @@ namespace Telegram_bots
         }
         #endregion
 
-        /// <summary>
-        /// Turns it into a string
-        /// </summary>
-        /// <returns>A string representing the chat</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
-            string str = string.Empty;
-            str += "Id: ";
-            str += Id;
-            str += ", Type: ";
-            str += Type;
+            StringBuilder builder = new();
+            builder.Append("Id: ");
+            builder.Append(Id);
+            builder.Append(", Type: ");
+            builder.Append(Type);
             if (Title != null)
             {
-                str += ", Title: ";
-                str += Title;
+                builder.Append(", Title: ");
+                builder.Append(Title);
             }
             if (FirstName != null)
             {
-                str += ", First name: ";
-                str += FirstName;
+                builder.Append(", First name: ");
+                builder.Append(FirstName);
             }
             if (LastName != null)
             {
-                str += ", Last name: ";
-                str += LastName;
+                builder.Append(", Last name: ");
+                builder.Append(LastName);
             }
             if (Username != null)
             {
-                str += ", Username: ";
-                str += Username;
+                builder.Append(", Username: ");
+                builder.Append(Username);
             }
-            return str;
+            return builder.ToString();
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
 
 namespace Telegram_bots
 {
@@ -21,13 +22,21 @@ namespace Telegram_bots
         public required Chat Chat { get; set; }
 
         /// <summary>
-        /// The text of the message
+        /// The Text of the message
         /// </summary>
         public string? Text { get; set; }
         /// <summary>
         /// The sender of the message
         /// </summary>
         public User? From { get; set; }
+        /// <summary>
+        /// Parameters for responding to a message
+        /// </summary>
+        public ReplyParameters? ReplyParameters { get; set; }
+        /// <summary>
+        /// The message that this message responds to
+        /// </summary>
+        public Message? ReplyMessage { get; set; }
 
         #region bool Equals(object? obj)
         /// <summary>
@@ -72,6 +81,14 @@ namespace Telegram_bots
             {
                 message.From = User.FromJSON(from);
             }
+            if (json.TryGetProperty("reply_to_message", out JsonElement replyMessage))
+            {
+                message.ReplyMessage = FromJSON(replyMessage);
+            }
+            if (json.TryGetProperty("reply_parameters", out JsonElement replyParameters))
+            {
+                message.ReplyParameters = ReplyParameters.FromJSON(replyParameters);
+            }
 
             return message;
         }
@@ -95,31 +112,41 @@ namespace Telegram_bots
         }
         #endregion
 
-        /// <summary>
-        /// Turns it into a string
-        /// </summary>
-        /// <returns>The string representing the message</returns>
+        /// <inheritdoc/>
         public override string ToString()
         {
-            string str = "Id: ";
-            str += Id;
-            str += ", Date: ";
-            str += Datetime;
-            str += ", Chat: (";
-            str += Chat;
-            str += ")";
+            StringBuilder builder = new();
+            builder.Append("Id: ");
+            builder.Append(Id);
+            builder.Append(", Date: ");
+            builder.Append(Datetime);
+            builder.Append(", Chat: (");
+            builder.Append(Chat);
+            builder.Append(')');
             if (Text != null)
             {
-                str += ", Text: ";
-                str += Text;
+                builder.Append(", Text: ");
+                builder.Append(Text);
             }
             if (From != null)
             {
-                str += ", From: (";
-                str += From;
-                str += ")";
+                builder.Append(", From: (");
+                builder.Append(From);
+                builder.Append(')');
             }
-            return str;
+            if (ReplyParameters != null)
+            {
+                builder.Append(", Reply parameters: (");
+                builder.Append(ReplyParameters);
+                builder.Append(')');
+            }
+            if (ReplyMessage != null)
+            {
+                builder.Append(", Reply to message: (");
+                builder.Append(ReplyMessage);
+                builder.Append(')');
+            }
+            return builder.ToString();
         }
 
         /// <summary>

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace Telegram_bots
 {
@@ -15,7 +11,7 @@ namespace Telegram_bots
         private bool disposedValue;
 
         /// <summary>
-        /// Token for the bot
+        /// token for the bot
         /// </summary>
         protected readonly string Token = string.Empty;
 
@@ -39,7 +35,7 @@ namespace Telegram_bots
         /// <summary>
         /// A constructor for creating a bot
         /// </summary>
-        /// <param name="Token">Token for the bot</param>
+        /// <param name="token">token for the bot</param>
         /// <exception cref="Exceptions.IncorrectRequestException">Called if you entered the wrong token</exception>
         /// <example>
         /// <code>
@@ -49,12 +45,12 @@ namespace Telegram_bots
         /// }
         /// </code>
         /// </example>
-        public TelegramBot(string Token)
+        public TelegramBot(string token)
         {
-            this.Token = Token;
+            Token = token;
             httpClient = new()
             {
-                BaseAddress = new Uri("https://api.telegram.org/bot" + Token + "/")
+                BaseAddress = new Uri("https://api.telegram.org/bot" + token + "/")
             };
 
             JsonDocument me = GetMe().Result;
@@ -85,25 +81,35 @@ namespace Telegram_bots
         /// <summary>
         /// Sends a message
         /// </summary>
-        /// <param name="Text">The text of the message</param>
-        /// <param name="ChatId">The chat_id to which the message will be sent. Do not use if you want to use the chat_id from the latest update</param>
+        /// <param name="messageText">The Text of the message</param>
+        /// <param name="chatId">The chat_id to which the message will be sent. Do not use if you want to use the chat_id from the latest update</param>
+        /// <param name="replyParameters">Parameters for responding to a message</param>
+        /// <param name="keyboard">Keyboard</param>
         /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
         /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
         /// <returns>The message that was sent</returns>
-        public async Task<Message> SendMessage(string Text, long ChatId = 0)
+        public async Task<Message> SendMessage(object messageText,
+            long? chatId = null,
+            ReplyParameters? replyParameters = null,
+            Keyboards.IKeyboard? keyboard = null)
         {
-            ArgumentNullException.ThrowIfNull(Text);
-            ArgumentNullException.ThrowIfNull(ChatId);
-
-            if (ChatId == 0)
-            {
-                ChatId = lastChatId;
-            }
+            string? text = messageText.ToString();
+            ArgumentNullException.ThrowIfNull(text);
+            chatId ??= lastChatId;
 
             Dictionary<string, string?> contentData = [];
 
-            contentData["text"] = Text.ToString();
-            contentData["chat_id"] = ChatId.ToString();
+            contentData["text"] = text.ToString();
+            contentData["chat_id"] = chatId.ToString();
+            if (replyParameters != null)
+            {
+                contentData["reply_parameters"] = JsonSerializer.Serialize(replyParameters);
+            }
+            if (keyboard != null)
+            {
+                contentData["reply_markup"] = JsonSerializer.Serialize(keyboard, keyboard.GetType());
+                Console.WriteLine(contentData["reply_markup"]);
+            }
 
             HttpContent content = new FormUrlEncodedContent(contentData);
 
@@ -172,11 +178,34 @@ namespace Telegram_bots
         public event UpdateHandler? OnUpdate;
         #endregion
 
-        #region IDisposable implementation
+        #region +, - operators
         /// <summary>
-        /// Release the resources occupied by the bot
+        /// Add the <seealso cref="OnUpdate"/> event function
         /// </summary>
-        /// <param name="disposing">Release managed resources</param>
+        /// <param name="bot">Telegram bot</param>
+        /// <param name="function">Function</param>
+        /// <returns>Telegram bot</returns>
+        public static TelegramBot operator +(TelegramBot bot, UpdateHandler function)
+        {
+            bot.OnUpdate += function;
+            return bot;
+        }
+
+        /// <summary>
+        /// Remove the <seealso cref="OnUpdate"/> event function
+        /// </summary>
+        /// <param name="bot">Telegram bot</param>
+        /// <param name="function">Function</param>
+        /// <returns>Telegram bot</returns>
+        public static TelegramBot operator -(TelegramBot bot, UpdateHandler function)
+        {
+            bot.OnUpdate -= function;
+            return bot;
+        }
+        #endregion
+
+        #region IDisposable implementation
+        /// <inheritdoc/>
         protected virtual void Dispose(bool disposing)
         {
             if (!disposedValue)
@@ -191,17 +220,13 @@ namespace Telegram_bots
             }
         }
 
-        /// <summary>
-        /// Release unmanaged resources occupied by the bot
-        /// </summary>
+        /// <inheritdoc/>
         ~TelegramBot()
         {
             Dispose(disposing: false);
         }
 
-        /// <summary>
-        /// Release the resources occupied by the bot
-        /// </summary>
+        /// <inheritdoc/>
         public void Dispose()
         {
             Dispose(disposing: true);

@@ -5,7 +5,7 @@
     <RootNamespace>Telegram_bots</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <SignAssembly>False</SignAssembly>
     <OutputType>Exe</OutputType>
     <StartupObject>MyTGBot.Tst</StartupObject>
