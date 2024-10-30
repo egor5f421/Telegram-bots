@@ -1,8 +1,4 @@
-Вот пример документации для вашей библиотеки `Telegram_bots`:
-
----
-
-**Telegram_bots**
+# Telegram_bots
 
 Библиотека для создания Telegram-ботов на C#.
 
