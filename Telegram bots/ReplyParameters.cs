@@ -73,7 +73,7 @@ namespace Telegram_bots
             return FromJSON(rootJsonElement.GetRawText());
         }
         /// <summary>
-        /// Create a ReplyParameters from a json string
+        /// Create a ReplyParameters from a Json string
         /// </summary>
         /// <param name="jsonString">Json string</param>
         /// <returns>ReplyParameters</returns>

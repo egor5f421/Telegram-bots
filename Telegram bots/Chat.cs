@@ -109,7 +109,7 @@ namespace Telegram_bots
             return FromJSON(rootJsonElement.GetRawText());
         }
         /// <summary>
-        /// Make a chat from a json string
+        /// Make a chat from a Json string
         /// </summary>
         /// <param name="jsonString">Json string</param>
         /// <returns>Chat</returns>

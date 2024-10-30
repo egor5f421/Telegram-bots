@@ -76,7 +76,7 @@ namespace Telegram_bots
             return FromJSON(rootJsonElement.GetRawText());
         }
         /// <summary>
-        /// Get an update from a json string
+        /// Get an update from a Json string
         /// </summary>
         /// <param name="jsonString">Json string</param>
         /// <returns>User</returns>

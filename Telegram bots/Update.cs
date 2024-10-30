@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using System.Text.Json;
 
 namespace Telegram_bots
@@ -12,11 +13,38 @@ namespace Telegram_bots
         /// Update ID
         /// </summary>
         public required long UpdateId { get; init; }
+        /// <summary>
+        /// Json representing the update
+        /// </summary>
+        public required JsonDocument Json {  get; init; }
+        /// <summary>
+        /// Update's type
+        /// </summary>
+        public Types Type { get; set; }
+
+        /// <summary>
+        /// Types of update
+        /// </summary>
+        public enum Types
+        {
+            /// <summary>
+            /// Message
+            /// </summary>
+            Message,
+            /// <summary>
+            /// Callback query
+            /// </summary>
+            CallbackQuery
+        }
 
         /// <summary>
         /// Message
         /// </summary>
         public Message? Message { get; set; }
+        /// <summary>
+        /// Callback query
+        /// </summary>
+        public CallbackQuery? CallbackQuery { get; set; }
 
         #region bool Equals(object? obj)
         /// <summary>
@@ -49,11 +77,24 @@ namespace Telegram_bots
             Update update = new()
             {
                 UpdateId = json.GetProperty("update_id")!.GetInt64(),
+                Json = jsonDocument,
             };
 
             if (json.TryGetProperty("message", out JsonElement message))
             {
                 update.Message = Message.FromJSON(message);
+            }
+            if (json.TryGetProperty("callback_query", out JsonElement callbackQuery))
+            {
+                update.CallbackQuery = CallbackQuery.FromJSON(callbackQuery);
+            }
+
+            if (update.CallbackQuery != null)
+            {
+                update.Type = Types.CallbackQuery;
+            } else if (update.Message != null)
+            {
+                update.Type = Types.Message;
             }
 
             return update;
@@ -68,7 +109,7 @@ namespace Telegram_bots
             return FromJSON(rootJsonElement.GetRawText());
         }
         /// <summary>
-        /// Get an update from a json string
+        /// Get an update from a Json string
         /// </summary>
         /// <param name="jsonString">Json string</param>
         /// <returns>Update</returns>
@@ -88,6 +129,12 @@ namespace Telegram_bots
             {
                 builder.Append(", Message: (");
                 builder.Append(Message);
+                builder.Append(')');
+            }
+            if (CallbackQuery != null)
+            {
+                builder.Append(", Callback query: (");
+                builder.Append(CallbackQuery);
                 builder.Append(')');
             }
             return builder.ToString();

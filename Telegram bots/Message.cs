@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
+using Telegram_bots.Keyboards;
 
 namespace Telegram_bots
 {
@@ -19,7 +20,7 @@ namespace Telegram_bots
         /// <summary>
         /// The chat to which the message was sent
         /// </summary>
-        public required Chat Chat { get; set; }
+        public required Chat Chat { get; init; }
 
         /// <summary>
         /// The Text of the message
@@ -102,7 +103,7 @@ namespace Telegram_bots
             return FromJSON(rootJsonElement.GetRawText());
         }
         /// <summary>
-        /// Create a message from a json string
+        /// Create a message from a Json string
         /// </summary>
         /// <param name="jsonString">Json string</param>
         /// <returns>Message</returns>

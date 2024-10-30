@@ -26,6 +26,11 @@ namespace Telegram_bots
         protected long lastUpdateId;
 
         /// <summary>
+        /// Callback_query_id from the last update.callback_query
+        /// </summary>
+        protected string lastCallbackQueryId = string.Empty;
+
+        /// <summary>
         /// An object for network access
         /// </summary>
         protected HttpClient httpClient;
@@ -108,7 +113,6 @@ namespace Telegram_bots
             if (keyboard != null)
             {
                 contentData["reply_markup"] = JsonSerializer.Serialize(keyboard, keyboard.GetType());
-                Console.WriteLine(contentData["reply_markup"]);
             }
 
             HttpContent content = new FormUrlEncodedContent(contentData);
@@ -123,6 +127,45 @@ namespace Telegram_bots
             Message message = Message.FromJSON(json.RootElement.GetProperty("result"));
 
             return message;
+        }
+        #endregion
+
+        #region AnswerCallbackQuery
+        /// <summary>
+        /// This method must be called after receiving the callback query request.
+        /// </summary>
+        /// <param name="text">The text in the window. Which will appear to the user.</param>
+        /// <param name="callbackQueryId">Callback query id</param>
+        /// <param name="showAlert">Should I display the text in a regular window or in a modal window?</param>
+        /// <returns>Has the function been completed successfully or not</returns>
+        public async Task<bool> AnswerCallbackQuery(string? text = null,
+            string? callbackQueryId = null,
+            bool showAlert = false)
+        {
+            callbackQueryId ??= lastCallbackQueryId;
+
+            Dictionary<string, string> keyValuePairs = new()
+            {
+                ["callback_query_id"] = callbackQueryId,
+                ["show_alert"] = showAlert.ToString().ToLower(),
+            };
+            if (text != null)
+            {
+                keyValuePairs["text"] = text;
+            }
+
+            HttpContent content = new FormUrlEncodedContent(keyValuePairs);
+            HttpResponseMessage response = await httpClient.PostAsync("answerCallbackQuery", content);
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            JsonDocument json = JsonDocument.Parse(jsonString);
+
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+
+            JsonElement root = json.RootElement;
+            JsonElement result = root.GetProperty("result");
+
+            return result.GetBoolean();
         }
         #endregion
 
@@ -155,6 +198,10 @@ namespace Telegram_bots
                         if (update.Message != null)
                         {
                             lastChatId = update.Message.Chat.Id;
+                        } else if (update.CallbackQuery != null)
+                        {
+                            lastChatId = update.CallbackQuery.From.Id;
+                            lastCallbackQueryId = update.CallbackQuery.Id;
                         }
                         if (update.UpdateId > lastUpdateId) lastUpdateId = update.UpdateId;
                         OnUpdate?.Invoke(update, this);
