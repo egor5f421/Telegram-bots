@@ -137,6 +137,8 @@ namespace Telegram_bots
         /// </summary>
         /// <param name="messageId">Identifier of the message to delete</param>
         /// <param name="chatId">Unique identifier for the target chat</param>
+        /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
+        /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
         /// <returns>True on success</returns>
         public async Task<bool> DeleteMessage(long messageId, long? chatId = null)
         {
@@ -161,6 +163,52 @@ namespace Telegram_bots
             bool success = json.RootElement.GetProperty("result").GetBoolean();
 
             return success;
+        }
+        #endregion
+
+        #region EditMessageText
+        /// <summary>
+        /// Use this method to edit text messages
+        /// </summary>
+        /// <param name="messageText">New text of the message</param>
+        /// <param name="messageId">Identifier of the message to edit</param>
+        /// <param name="chatId">Unique identifier for the target chat</param>
+        /// <param name="keyboard">Inline keyboard</param>
+        /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
+        /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
+        /// <returns></returns>
+        public async Task<Message> EditMessageText(object messageText,
+            long messageId,
+            long? chatId = null,
+            Keyboards.InlineKeyboard? keyboard = null)
+        {
+            ArgumentNullException.ThrowIfNull(messageText);
+            ArgumentNullException.ThrowIfNull(messageId);
+
+            chatId ??= lastChatId;
+
+            Dictionary<string, string?> contentData = [];
+
+            contentData["text"] = messageText.ToString();
+            contentData["message_id"] = messageId.ToString();
+            contentData["chat_id"] = chatId.ToString();
+            if (keyboard != null)
+            {
+                contentData["reply_markup"] = JsonSerializer.Serialize(keyboard, typeof(Keyboards.InlineKeyboard));
+            }
+
+            HttpContent content = new FormUrlEncodedContent(contentData);
+
+            HttpResponseMessage response = await httpClient.PostAsync("editMessageText", content);
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            JsonDocument json = JsonDocument.Parse(jsonString);
+
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+
+            Message message = Message.FromJSON(json.RootElement.GetProperty("result"));
+
+            return message;
         }
         #endregion
 
