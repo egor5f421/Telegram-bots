@@ -125,6 +125,8 @@ namespace Telegram_bots
             StringBuilder builder = new();
             builder.Append("Update id: ");
             builder.Append(UpdateId);
+            builder.Append(", Type: ");
+            builder.Append(Type);
             if (Message != null)
             {
                 builder.Append(", Message: (");

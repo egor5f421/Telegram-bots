@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Telegram_bots
 {
@@ -127,6 +128,39 @@ namespace Telegram_bots
             Message message = Message.FromJSON(json.RootElement.GetProperty("result"));
 
             return message;
+        }
+        #endregion
+
+        #region DeleteMessage
+        /// <summary>
+        /// Use this method to delete a message
+        /// </summary>
+        /// <param name="messageId">Identifier of the message to delete</param>
+        /// <param name="chatId">Unique identifier for the target chat</param>
+        /// <returns>True on success</returns>
+        public async Task<bool> DeleteMessage(long messageId, long? chatId = null)
+        {
+            ArgumentNullException.ThrowIfNull(messageId);
+
+            chatId ??= lastChatId;
+
+            Dictionary<string, string?> contentData = [];
+
+            contentData["chat_id"] = chatId.ToString();
+            contentData["message_id"] = messageId.ToString();
+
+            HttpContent content = new FormUrlEncodedContent(contentData);
+
+            HttpResponseMessage response = await httpClient.PostAsync("deleteMessage", content);
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            JsonDocument json = JsonDocument.Parse(jsonString);
+
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+
+            bool success = json.RootElement.GetProperty("result").GetBoolean();
+
+            return success;
         }
         #endregion
 
