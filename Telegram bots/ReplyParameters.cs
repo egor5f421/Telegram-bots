@@ -34,6 +34,15 @@ namespace Telegram_bots
         /// <summary>
         /// Creates parameters for responding to a message
         /// </summary>
+        /// <param name="id">The message's id that needs to be answered</param>
+        public ReplyParameters(long id)
+        {
+            MessageId = id;
+            ChatId = null;
+        }
+        /// <summary>
+        /// Creates parameters for responding to a message
+        /// </summary>
         /// <param name="message">The message that needs to be answered</param>
         public ReplyParameters(Message message)
         {

@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Telegram_bots
 {
@@ -182,7 +181,18 @@ namespace Telegram_bots
 
         #region Photo
         #region SendPhoto
-        public async Task<Message> SendPhoto(Files.File photo,
+        /// <summary>
+        /// Use this method to send photos.
+        /// </summary>
+        /// <param name="photo">Photo to send.</param>
+        /// <param name="caption">Photo caption</param>
+        /// <param name="chatId">Unique identifier for the target chat.</param>
+        /// <param name="showCaptionAboveMedia">Pass true, if the caption must be shown above the message media</param>
+        /// <param name="hasSpoiler">Pass true if the photo needs to be covered with a spoiler animation.</param>
+        /// <param name="replyParameters">Description of the message to reply to</param>
+        /// <param name="keyboard">Keyboard</param>
+        /// <returns>On success, the sent Message is returned.</returns>
+        public async Task<Message> SendPhoto(Files.InputFile photo,
             string? caption = null,
             long? chatId = null,
             bool showCaptionAboveMedia = false,
@@ -193,24 +203,26 @@ namespace Telegram_bots
             ArgumentNullException.ThrowIfNull(photo);
             chatId ??= lastChatId;
 
-            StringBuilder urlQueryBuilder = new("sendPhoto?");
-            urlQueryBuilder.Append("chat_id=");
-            urlQueryBuilder.Append(chatId);
-            //urlQueryBuilder.Append('&');
+            using MultipartFormDataContent formData = [];
+            formData.Add(new ByteArrayContent(photo.Data), "photo", photo.FileName);
 
-
-            HttpResponseMessage response;
-            using (var formData = new MultipartFormDataContent())
+            formData.Add(new StringContent(chatId.ToString()!), "chat_id");
+            if (caption != null)
             {
-                formData.Add(new ByteArrayContent(photo.Data), "photo", photo.FileName);
-                response = await httpClient.PostAsync(urlQueryBuilder.ToString(), formData);
-                if (response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine("File uploaded successfully. Eeeeeeeeeεeeeeeeeeeee!!!!!!!!!!");
-                }
+                formData.Add(new StringContent(caption.ToString()), "caption");
+            }
+            formData.Add(new StringContent(showCaptionAboveMedia.ToString()), "show_caption_above_media");
+            formData.Add(new StringContent(hasSpoiler.ToString()), "has_spoiler");
+            if (replyParameters != null)
+            {
+                formData.Add(new StringContent(JsonSerializer.Serialize(replyParameters)), "reply_parameters");
+            }
+            if (keyboard != null)
+            {
+                formData.Add(new StringContent(JsonSerializer.Serialize(keyboard, keyboard.GetType())), "reply_markup");
             }
 
-
+            HttpResponseMessage response = await httpClient.PostAsync("sendPhoto", formData);
             string jsonString = await response.Content.ReadAsStringAsync();
 
             JsonDocument json = JsonDocument.Parse(jsonString);
@@ -260,6 +272,14 @@ namespace Telegram_bots
         #endregion
 
         #region setMessageReaction
+        /// <summary>
+        /// Use this method to change the chosen reaction on a message.
+        /// </summary>
+        /// <param name="messageId">Identifier of the target message.</param>
+        /// <param name="reaction">reaction</param>
+        /// <param name="chatId">Unique identifier for the target chat.</param>
+        /// <param name="isBig">Pass true to set the reaction with a big animation</param>
+        /// <returns>Returns true on success.</returns>
         public async Task<bool> SetMessageReaction(long messageId,
             Reactions.IReaction reaction,
             long? chatId = null,
