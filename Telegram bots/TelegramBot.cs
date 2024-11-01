@@ -1,5 +1,5 @@
-﻿using System.Text.Json;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Text;
+using System.Text.Json;
 
 namespace Telegram_bots
 {
@@ -83,6 +83,8 @@ namespace Telegram_bots
         }
         #endregion
 
+        #region Message
+        #region Text
         #region SendMessage
         /// <summary>
         /// Sends a message
@@ -90,7 +92,7 @@ namespace Telegram_bots
         /// <param name="messageText">The Text of the message</param>
         /// <param name="chatId">The chat_id to which the message will be sent. Do not use if you want to use the chat_id from the latest update</param>
         /// <param name="replyParameters">Parameters for responding to a message</param>
-        /// <param name="keyboard">Keyboard</param>
+        /// <param name="keyboard">Keyboards</param>
         /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
         /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
         /// <returns>The message that was sent</returns>
@@ -128,41 +130,6 @@ namespace Telegram_bots
             Message message = Message.FromJSON(json.RootElement.GetProperty("result"));
 
             return message;
-        }
-        #endregion
-
-        #region DeleteMessage
-        /// <summary>
-        /// Use this method to delete a message
-        /// </summary>
-        /// <param name="messageId">Identifier of the message to delete</param>
-        /// <param name="chatId">Unique identifier for the target chat</param>
-        /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
-        /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
-        /// <returns>True on success</returns>
-        public async Task<bool> DeleteMessage(long messageId, long? chatId = null)
-        {
-            ArgumentNullException.ThrowIfNull(messageId);
-
-            chatId ??= lastChatId;
-
-            Dictionary<string, string?> contentData = [];
-
-            contentData["chat_id"] = chatId.ToString();
-            contentData["message_id"] = messageId.ToString();
-
-            HttpContent content = new FormUrlEncodedContent(contentData);
-
-            HttpResponseMessage response = await httpClient.PostAsync("deleteMessage", content);
-            string jsonString = await response.Content.ReadAsStringAsync();
-
-            JsonDocument json = JsonDocument.Parse(jsonString);
-
-            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
-
-            bool success = json.RootElement.GetProperty("result").GetBoolean();
-
-            return success;
         }
         #endregion
 
@@ -210,6 +177,118 @@ namespace Telegram_bots
 
             return message;
         }
+        #endregion
+        #endregion
+
+        #region Photo
+        #region SendPhoto
+        public async Task<Message> SendPhoto(Files.File photo,
+            string? caption = null,
+            long? chatId = null,
+            bool showCaptionAboveMedia = false,
+            bool hasSpoiler = false,
+            ReplyParameters? replyParameters = null,
+            Keyboards.IKeyboard? keyboard = null)
+        {
+            ArgumentNullException.ThrowIfNull(photo);
+            chatId ??= lastChatId;
+
+            StringBuilder urlQueryBuilder = new("sendPhoto?");
+            urlQueryBuilder.Append("chat_id=");
+            urlQueryBuilder.Append(chatId);
+            //urlQueryBuilder.Append('&');
+
+
+            HttpResponseMessage response;
+            using (var formData = new MultipartFormDataContent())
+            {
+                formData.Add(new ByteArrayContent(photo.Data), "photo", photo.FileName);
+                response = await httpClient.PostAsync(urlQueryBuilder.ToString(), formData);
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("File uploaded successfully. Eeeeeeeeeεeeeeeeeeeee!!!!!!!!!!");
+                }
+            }
+
+
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            JsonDocument json = JsonDocument.Parse(jsonString);
+
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+
+            Message message = Message.FromJSON(json.RootElement.GetProperty("result"));
+
+            return message;
+        }
+        #endregion
+        #endregion
+
+        #region DeleteMessage
+        /// <summary>
+        /// Use this method to delete a message
+        /// </summary>
+        /// <param name="messageId">Identifier of the message to delete</param>
+        /// <param name="chatId">Unique identifier for the target chat</param>
+        /// <exception cref="ArgumentNullException">It is thrown if one of the arguments is null</exception>
+        /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
+        /// <returns>True on success</returns>
+        public async Task<bool> DeleteMessage(long messageId, long? chatId = null)
+        {
+            ArgumentNullException.ThrowIfNull(messageId);
+
+            chatId ??= lastChatId;
+
+            Dictionary<string, string?> contentData = [];
+
+            contentData["chat_id"] = chatId.ToString();
+            contentData["message_id"] = messageId.ToString();
+
+            HttpContent content = new FormUrlEncodedContent(contentData);
+
+            HttpResponseMessage response = await httpClient.PostAsync("deleteMessage", content);
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            JsonDocument json = JsonDocument.Parse(jsonString);
+
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+
+            bool success = json.RootElement.GetProperty("result").GetBoolean();
+
+            return success;
+        }
+        #endregion
+
+        #region setMessageReaction
+        public async Task<bool> SetMessageReaction(long messageId,
+            Reactions.IReaction reaction,
+            long? chatId = null,
+            bool isBig = false)
+        {
+            ArgumentNullException.ThrowIfNull(messageId);
+            chatId ??= lastChatId;
+
+            Dictionary<string, string?> contentData = [];
+
+            contentData["chat_id"] = chatId.ToString();
+            contentData["message_id"] = messageId.ToString();
+            contentData["reaction"] = '[' + JsonSerializer.Serialize(reaction, reaction.GetType()) + ']';
+            contentData["is_big"] = isBig.ToString();
+
+            HttpContent content = new FormUrlEncodedContent(contentData);
+
+            HttpResponseMessage response = await httpClient.PostAsync("setMessageReaction", content);
+            string jsonString = await response.Content.ReadAsStringAsync();
+
+            JsonDocument json = JsonDocument.Parse(jsonString);
+
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+
+            bool success = json.RootElement.GetProperty("result").GetBoolean();
+
+            return success;
+        }
+        #endregion
         #endregion
 
         #region AnswerCallbackQuery
@@ -280,7 +359,8 @@ namespace Telegram_bots
                         if (update.Message != null)
                         {
                             lastChatId = update.Message.Chat.Id;
-                        } else if (update.CallbackQuery != null)
+                        }
+                        else if (update.CallbackQuery != null)
                         {
                             lastChatId = update.CallbackQuery.From.Id;
                             lastCallbackQueryId = update.CallbackQuery.Id;
