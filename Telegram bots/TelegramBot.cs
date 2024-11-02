@@ -271,7 +271,7 @@ namespace Telegram_bots
         }
         #endregion
 
-        #region setMessageReaction
+        #region SetMessageReaction
         /// <summary>
         /// Use this method to change the chosen reaction on a message.
         /// </summary>
