@@ -1,4 +1,5 @@
-﻿namespace Telegram_bots.Keyboards
+﻿
+namespace Telegram_bots.Keyboards
 {
     /// <summary>
     /// Keyboard
@@ -8,6 +9,6 @@
         /// <summary>
         /// Keyboard's buttons
         /// </summary>
-        IKeyboardButton[][] Keyboard { get; set; }
+        public IEnumerable<IEnumerable<IKeyboardButton>> Keyboard { get; set; }
     }
 }

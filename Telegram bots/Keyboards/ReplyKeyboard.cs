@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,6 @@ namespace Telegram_bots.Keyboards
         /// <inheritdoc/>
         /// </summary>
         [JsonPropertyName("keyboard")]
-        public IKeyboardButton[][] Keyboard { get; set; } = buttons;
+        public IEnumerable<IEnumerable<IKeyboardButton>> Keyboard { get; set; } = buttons;
     }
 }

@@ -34,19 +34,21 @@ namespace Telegram_bots.Exceptions
             if (!isOk)
             {
                 string? description = json.RootElement.GetProperty("description").GetString();
+                int errorCode = json.RootElement.GetProperty("error_code").GetInt32();
                 if (description != null)
                 {
-                    Throw(description);
+                    Throw(description, errorCode);
                 }
                 else
                 {
-                    Throw(null);
+                    Throw(null, errorCode);
                 }
             }
         }
+
         [DoesNotReturn]
-        internal static void Throw(string? message) =>
-            throw new IncorrectRequestException(message);
+        internal static void Throw(string? message, int errorCode) =>
+            throw new IncorrectRequestException("[" + errorCode + "] " + message);
     }
 
 }

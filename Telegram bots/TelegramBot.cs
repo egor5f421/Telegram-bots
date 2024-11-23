@@ -46,7 +46,7 @@ namespace Telegram_bots
         /// <code>
         /// public static async Task Main(string[] args)
         /// {
-        ///     using TelegramBot bot = new (args[0]);
+        ///     using TelegramBot bot = new(args[0]);
         /// }
         /// </code>
         /// </example>
@@ -55,11 +55,12 @@ namespace Telegram_bots
             Token = token;
             httpClient = new()
             {
-                BaseAddress = new Uri("https://api.telegram.org/bot" + token + "/")
+                BaseAddress = new($"https://api.telegram.org/bot{token}/")
             };
 
-            JsonDocument me = GetMe().Result;
-            Exceptions.IncorrectRequestException.ThrowIfNotOk(me);
+            HttpContent response = (httpClient.GetAsync("getMe").Result).Content;
+            string stream = response.ReadAsStringAsync().Result;
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(JsonDocument.Parse(stream));
         }
         #endregion
 
@@ -69,16 +70,16 @@ namespace Telegram_bots
         /// </summary>
         /// <exception cref="Exceptions.IncorrectRequestException">It is thrown if an incorrect request was made</exception>
         /// <returns>Information about the bot</returns>
-        public async Task<JsonDocument> GetMe()
+        public async Task<User> GetMe()
         {
             HttpContent response = (await httpClient.GetAsync("getMe")).Content;
             string stream = await response.ReadAsStringAsync();
 
-            JsonDocument json = JsonDocument.Parse(stream);
+            JsonDocument jsonDoc = JsonDocument.Parse(stream);
 
-            Exceptions.IncorrectRequestException.ThrowIfNotOk(json);
+            Exceptions.IncorrectRequestException.ThrowIfNotOk(jsonDoc);
 
-            return json;
+            return User.FromJSON(jsonDoc);
         }
         #endregion
 

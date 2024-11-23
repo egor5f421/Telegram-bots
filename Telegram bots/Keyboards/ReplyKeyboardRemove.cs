@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,17 @@ namespace Telegram_bots.Keyboards
     {
         /// It's nothing
         [JsonIgnore]
-        public IKeyboardButton[][] Keyboard { get; set; } = [[]];
+        public IEnumerable<IEnumerable<IKeyboardButton>> Keyboard
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
         /// <summary>
         /// Should I remove the keyboard or not?
         /// </summary>
